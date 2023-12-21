@@ -24,3 +24,24 @@ WHERE c.name = 'Africa';
 SELECT 	c.name 
 FROM countries c
 WHERE c.national_day IS NULL; 
+
+-- 6
+SELECT c.name, r.name, c2.name  
+FROM countries c 
+JOIN regions r ON c.country_id = r.region_id  
+JOIN continents c2 ON r.continent_id  = c2.continent_id  
+ORDER BY c.name ASC; 
+
+-- 7
+SELECT l.language
+FROM countries c 
+JOIN country_languages cl ON c.country_id = cl.country_id
+JOIN languages l ON cl.language_id = l.language_id 
+WHERE c.name = 'Albania';
+
+-- 8
+SELECT AVG(cs.gdp) 
+FROM countries c
+JOIN country_stats cs ON c.country_id = cs.country_id 
+WHERE cs.`year` >= 2000 AND cs.`year` <= 2010 AND c.name = 'United Kingdom';
+
