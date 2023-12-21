@@ -1,0 +1,26 @@
+-- 1 
+SELECT *
+FROM countries c 
+WHERE c.name LIKE 'P%' AND c.area > 1000;
+
+-- 2
+SELECT count(*) as number_of_nations
+FROM countries c;
+
+-- 3
+SELECT DISTINCT r.name
+FROM regions r
+JOIN continents  c ON r.continent_id = c.continent_id
+WHERE c.name = 'Europe'
+ORDER BY r.name ASC;
+
+-- 4
+SELECT count(*)
+FROM regions r
+JOIN continents c ON r.continent_id = c.continent_id
+WHERE c.name = 'Africa';
+
+-- 5
+SELECT 	c.name 
+FROM countries c
+WHERE c.national_day IS NULL; 
